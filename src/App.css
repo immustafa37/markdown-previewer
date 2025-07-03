@@ -7,30 +7,33 @@ body {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  text-align: center;
 }
 
 h1 {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 .editor-preview {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .editor,
 .preview {
-  flex: 1;
-  height: 400px;
+  flex: 1 1 45%;
+  min-height: 400px;
   padding: 15px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 10px;
   border: none;
   resize: none;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 .editor {
@@ -41,19 +44,19 @@ h1 {
 .preview {
   background-color: #ffffff;
   color: #000000;
-  overflow-y: auto;
   text-align: left;
 }
 
+/* Markdown style inside preview */
 .preview h1,
 .preview h2,
 .preview h3 {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .preview code {
   background-color: #f5f5f5;
-  padding: 2px 5px;
+  padding: 3px 6px;
   font-family: monospace;
 }
 
@@ -61,4 +64,17 @@ h1 {
   background-color: #f4f4f4;
   padding: 10px;
   overflow-x: auto;
+  border-radius: 5px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .editor-preview {
+    flex-direction: column;
+  }
+
+  .editor,
+  .preview {
+    flex: 1 1 100%;
+  }
 }
